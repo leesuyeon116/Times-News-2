@@ -16,10 +16,12 @@ const render = () => {
     const newsHTML = newsList.map(
         news => ` <div class="row news">
             <div class="col-lg-4">
-                <img class="news-img-size" src=${news.urlToImage} />
+                <img class="news-img-size" 
+                    src="${news.urlToImage}"
+                    onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU'; this.onerror=null;" />
             </div>
             <div class="col-lg-8">
-                <h2>${news.title}</h2>
+                <h2 class="title" target="_blank" href="${news.url}">${news.title}</h2>
                 <p>${
                     news.description == null || news.description == 
                     "" ? "내용없음" 
@@ -28,11 +30,12 @@ const render = () => {
                     : news.description
                 }</p>
                 <div>
-                    ${news.source.name} * ${news.publishedAt}
+                    ${news.source.name || "no source"} ${moment(news.publishedAt).fromNow()}
                 </div>
             </div>
         </div>`
     ).join(""); 
+
     console.log("html", newsHTML);
     document.getElementById("news-board").innerHTML = newsHTML;
 };

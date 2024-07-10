@@ -1,3 +1,7 @@
+body {
+    background-color: #E0ECF8;
+}
+
 .head-line {
     margin-top: 1em;
     display: flex;
@@ -13,7 +17,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid #D8D8D8;
     border-bottom: 4px double black;
 }
 
