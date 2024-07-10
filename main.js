@@ -1,6 +1,8 @@
 // 뉴스 API 키
 const API_KEY = 'c4bc2b6bdf3c4b1ebb90a08ee97275b4';
 let newsList = [];
+const menus = document.querySelectorAll(".menus button");
+menus.forEach(menu => menu.addEventListener("click", (event) => getNewsByCategory(event)));
 
 const getLatestNews = async () => {
     // API 요청 URL 
@@ -12,6 +14,9 @@ const getLatestNews = async () => {
     console.log("ddd", newsList);
 };
 
+const getNewsByCategory = (event) => {
+    console.log("category");
+}
 const render = () => {
     const newsHTML = newsList.map(
         news => ` <div class="row news">
@@ -39,6 +44,5 @@ const render = () => {
     console.log("html", newsHTML);
     document.getElementById("news-board").innerHTML = newsHTML;
 };
-
 
 getLatestNews();
